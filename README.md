@@ -5,10 +5,10 @@
 Exemples d'utilisation :
 
 ```
-./edt.py cal.ics 2023-02-17 2023-03-05
-./edt.py cal.ics 2023-02-17
-./edt.py cal.ics
-./edt.py cal.ics 2023-02-17 2023-03-05 TG
+./rapportICS.py cal.ics 2023-02-17 2023-03-05
+./rapportICS.py cal.ics 2023-02-17
+./rapportICS.py cal.ics
+./rapportICS.py cal.ics 2023-02-17 2023-03-05 TG
 ```
 
 Le nom du fichier .ics est obligatoire.

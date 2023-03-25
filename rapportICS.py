@@ -14,10 +14,10 @@ def convertirHHMMSSEnH(hhmmss : str) -> float:
 
 def afficherExemples():
     print('Exemples d\'utilisation :\n')
-    print(' ./edt.py cal.ics 2023-02-17 2023-03-05')
-    print(' ./edt.py cal.ics 2023-02-17')
-    print(' ./edt.py cal.ics')
-    print(' ./edt.py cal.ics 2023-02-17 2023-03-05 TG')
+    print(' ./rapportICS.py cal.ics 2023-02-17 2023-03-05')
+    print(' ./rapportICS.py cal.ics 2023-02-17')
+    print(' ./rapportICS.py cal.ics')
+    print(' ./rapportICS.py cal.ics 2023-02-17 2023-03-05 TG')
     print()
     print('Le nom du fichier .ics est obligatoire.')
     print('Si une seule date est donnée, elle est considérée comme la date de début de compte-rendu.')
