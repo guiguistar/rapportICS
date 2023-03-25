@@ -36,17 +36,15 @@ if __name__ == '__main__':
     dateDebut = arrow.get('1970-01-01')
     dateFin   = arrow.get('3000-01-01')
 
-    if nArgv >= 3:
-        regex = re.compile('^\d{4}[/-]\d{2}[/-]\d{2}$')
-        
-        if regex.match(sys.argv[2]):
-            print('La date de début fournie est valide.')
-            dateDebut = arrow.get(sys.argv[2])
+    reDate = re.compile('^\d{4}[/-]\d{2}[/-]\d{2}$')
+    
+    if nArgv >= 3 and reDate.match(sys.argv[2]):
+        print('La date de début fournie est valide.')
+        dateDebut = arrow.get(sys.argv[2])
 
-        if nArgv >= 4:
-            if regex.match(sys.argv[3]):
-                print('La date de fin fournie est valide.')
-                dateFin = arrow.get(sys.argv[3])
+        if nArgv >= 4 and reDate.match(sys.argv[3]):
+            print('La date de fin fournie est valide.')
+            dateFin = arrow.get(sys.argv[3])
 
     with open('cal.ics', 'r') as f:
         contenu = f.read()
