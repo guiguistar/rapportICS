@@ -50,7 +50,7 @@ if __name__ == '__main__':
             dateFin = arrow.get(sys.argv[3])
 
             if nArgv >= 5:
-                print(f'Expression réulière fournie : {sys.argv[4]}.')
+                print(f'Expression régulière fournie : {sys.argv[4]}.')
                 reLibelle = re.compile(sys.argv[4])
 
     with open('cal.ics', 'r') as f:

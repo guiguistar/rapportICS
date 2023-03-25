@@ -21,7 +21,7 @@ Si, en plus des deux dates, une expression régulière est fournie, cette derni�
 ```
 La date de début fournie est valide.
 La date de fin fournie est valide.
-Expression réulière fournie : fondamentales.
+Expression régulière fournie : fondamentales.
 Date de début : 2023-03-01T00:00:00+00:00
 Date de fin   : 2023-04-01T00:00:00+00:00
 TD_SUP_LI_G1 - Mathématiques fondamentales 2............ 1.5h 01-03-2023 à 12:30
