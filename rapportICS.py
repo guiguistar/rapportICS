@@ -37,7 +37,8 @@ if __name__ == '__main__':
     dateFin   = arrow.get('3000-01-01')
 
     reDate = re.compile('^\d{4}[/-]\d{2}[/-]\d{2}$')
-    
+    reLibelle = None
+
     if nArgv >= 3 and reDate.match(sys.argv[2]):
         print('La date de début fournie est valide.')
         dateDebut = arrow.get(sys.argv[2])
@@ -46,11 +47,15 @@ if __name__ == '__main__':
             print('La date de fin fournie est valide.')
             dateFin = arrow.get(sys.argv[3])
 
+            if nArgv >= 5:
+                print(f'Expression réulière fournie : {sys.argv[4]}.')
+                reLibelle = re.compile(sys.argv[4])
+
     with open('cal.ics', 'r') as f:
         contenu = f.read()
         cal = Calendar(contenu)
         evs = list(cal.timeline)
-        libelle = defaultdict(list)
+        libelles = defaultdict(list)
 
     print(f'Date de début : {dateDebut}')
     print(f'Date de fin   : {dateFin}')
@@ -61,16 +66,18 @@ if __name__ == '__main__':
         debut = ev.begin
         #print(str(debut), dateDebut <= debut <= dateFin)
         if dateDebut <= debut <= dateFin:
-            c = ev.name
+            libelle = ev.name
             d = ev.duration
             deb = ev.begin
             dEnFloat = convertirHHMMSSEnH(d)
-            totalHeures += dEnFloat
             formatDate = 'DD-MM-YYYY à HH:mm'
-            libelle[c].append( ( f'{dEnFloat}h', deb.format(formatDate, locale='fr') ) )
-    
-    for k,v in sorted(libelle.items()):
+
+            if reLibelle is None or reLibelle.search(libelle):
+                libelles[libelle].append( ( f'{dEnFloat}h', deb.format(formatDate, locale='fr') ) )
+                totalHeures += dEnFloat
+
+    for k,v in sorted(libelles.items()):
         for el in v:
-            print(k[:50].ljust(50,'.'), *el)
+            print(k[:56].ljust(56,'.'), *el)
             #print(el, k[:40].rjust(50,'.'))
     print(totalHeures)
