@@ -17,10 +17,12 @@ def afficherExemples():
     print(' ./edt.py cal.ics 2023-02-17 2023-03-05')
     print(' ./edt.py cal.ics 2023-02-17')
     print(' ./edt.py cal.ics')
+    print(' ./edt.py cal.ics 2023-02-17 2023-03-05 TG')
     print()
     print('Le nom du fichier .ics est obligatoire.')
     print('Si une seule date est donnée, elle est considérée comme la date de début de compte-rendu.')
     print('Si deux dates sont données, le programme affiche la liste de tous les événements s\'étant tenus entre ces deux dates.')
+    print('Si, en plus des deux dates, une expression régulière est fournie, cette dernière est utilisée pour filtrer les résultats.')
 
 if __name__ == '__main__':
     nArgv = len(sys.argv)
