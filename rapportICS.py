@@ -53,7 +53,7 @@ if __name__ == '__main__':
                 print(f'Expression régulière fournie : {sys.argv[4]}.')
                 reLibelle = re.compile(sys.argv[4])
 
-    with open('cal.ics', 'r') as f:
+    with open(fichier, 'r') as f:
         contenu = f.read()
         cal = Calendar(contenu)
         evs = list(cal.timeline)
